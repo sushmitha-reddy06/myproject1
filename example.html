@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    var num, temp;
+    function fun() {
+      num = parseInt(document.getElementById("num").value);
+      
+      if(num) {
+        if(num%2==0)
+      document.getElementById("res").innerHTML = "Even";
+    else
+      document.getElementById("res").innerHTML = "Odd";
+      }
+    }
+  </script>
+</head>
+<body>
+  <p>Enter a number : <input id="num"/><button onclick="fun()">Check</button></p>
+  <p id="resPara" >it is a <span id="res"></span> number</p>
+</body>
+</html>

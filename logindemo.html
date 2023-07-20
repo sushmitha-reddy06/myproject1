@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <script type="text/javascript">
+        function fun() {
+            var nameInput = document.getElementsByName("name")[0].value;
+            var mailInput = document.getElementsByName("mail")[0].value;
+            var phoneInput = document.getElementsByName("Phone")[0].value;
+
+            if (nameInput === '' || mailInput === '' || phoneInput === '') {
+                alert("Please fill in all the details before submitting.");
+                return;
+            }
+
+            var nameRegex = /^[A-Za-z\s]+$/;
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            var phoneRegex = /^\d+$/;
+
+            if (!nameRegex.test(nameInput)) {
+                alert("Name should only contain alphabets and spaces.");
+            }
+
+            if (!emailRegex.test(mailInput)) {
+                alert("Enter a valid email address.");
+            }
+
+            if (!phoneRegex.test(phoneInput)) {
+                alert("Phone number should only contain numbers.");
+            }
+        }
+
+       function numberonly(input){
+        var num=/[^0-9]/gi;
+        input.value=input.value.replace(num,"");
+       }
+    </script>
+</head>
+
+<body>
+    <form>
+        <p><input type="text" name="name" placeholder="Your Full Name" required></p>
+        <p><input type="email" name="mail" placeholder="Your Email-Id" required></p>
+        <p><input type="text" name="Phone" placeholder="Your Phone" onkeyup="numberonly(this)" required></p>
+        <button type="button" onclick="fun()">Submit</button>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <script>
+       function fun() {
+        var nameInput = document.getElementsByName("name").value;
+        var mailInput = document.getElementsByName("mail").value;
+        var phoneInput = document.getElementsByName("Phone").value;
+
+        if( nameInput == '' || mailInput == ''|| phoneInput == ''){
+            alert("Please Fill the Details Before submitting")
+        }
+
+        var nameRegex = /^[A-Za-z\s]+$/;
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        var phoneRegex = /^[0-9]+$/;
+
+        if (!nameRegex.test(nameInput)) {
+            alert("Name should only contain Alphabet and Spaces.")
+        }
+
+        if (!mailRegex.test(mailInput)) {
+            alert("Enter a valid Email-Id.")
+        }
+
+        if (!phoneRegex.test(phoneInput)) {
+            alert("Phone Number should only contain Numbers.")
+        }
+        
+}
+function numberOnly(event) {
+    var key = event.key;
+    if (isNaN(key)
+ || key === ' ') {
+        event.preventDefault();
+    }}   
+
+    </script>
+</head>
+<body>
+     <form>
+        <p><input type="text" name = "name" placeholder="Your Full Name" required></p>
+        <p><input type="email" name="mail" placeholder="Your Email-Id" required></p>
+        <p><input type="text" name="Phone" placeholder="Your Phone" onkeypress="numberOnly(event)" required></p>
+                <button onclick="fun()">Submit</button></p>
+        
+
+     </form>
+</body>
+</html>
+ 

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <button id="aButton">Click Me</button>
+    <p id="counterDisplay">Counter: 0</p>
+    
+</head>
+<body>
+    <script>
+        const button = document.getElementById('aButton');
+        const counterDisplay = document.getElementById('counterDisplay');
+
+        let counter = 0; 
+
+        function incrementCounter() {
+            counter++;
+            counterDisplay.textContent = 'Counter: ' + counter;
+        }
+
+        button.addEventListener('click', incrementCounter);
+           
+    </script>
+</body>
+</html>
