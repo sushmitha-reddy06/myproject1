@@ -1,1 +1,36 @@
-patterns.html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Subtraction with Button</title>
+</head>
+<body>
+  <label for="num1">Enter the first number:</label>
+  <input type="text" id="num1" />
+
+  <label for="num2">Enter the second number:</label>
+  <input type="text" id="num2" />
+
+  <button onclick="performSubtraction()">Subtract</button>
+
+  <p id="result"></p>
+
+  <script>
+    function performSubtraction() {
+      // Get the values from the input fields
+      const num1 = parseFloat(document.getElementById("num1").value);
+      const num2 = parseFloat(document.getElementById("num2").value);
+
+      // Check if the inputs are valid numbers
+      if (isNaN(num1) || isNaN(num2)) {
+        document.getElementById("result").innerText = "Invalid input. Please enter valid numbers.";
+      } else {
+        // Perform the subtraction
+        const result = num1 - num2;
+
+        // Display the result
+        document.getElementById("result").innerText = `The result of ${num1} - ${num2} is: ${result}`;
+      }
+    }
+  </script>
+</body>
+</html>
