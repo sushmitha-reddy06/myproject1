@@ -1,0 +1,15 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Josfin Sans', sans-serif;
+    box-sizing: border-box;
+}
+body {
+    text-align: center;
+    font-size: 35px;
+    padding: 350px;
+    font-family: 'Josfin Sans', sans-serif;
+    display: block;
+    color: #f9004d;
+    
+};
