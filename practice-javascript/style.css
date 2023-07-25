@@ -7,9 +7,17 @@
 body {
     text-align: center;
     font-size: 35px;
-    padding: 350px;
+    padding: 100px;
     font-family: 'Josfin Sans', sans-serif;
     display: block;
     color: #f9004d;
     
-};
+}
+  .calculate-button {
+    background-color: #f9004d;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }

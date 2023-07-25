@@ -10,6 +10,7 @@
         #canvas {
             background-color: #fff;
             border: 100px solid rgb(230, 183, 178);
+            box-sizing: 100px 100px;
         }
     </style>
 </head>
@@ -28,10 +29,11 @@
     <div id="inputFields">
         <!--empty div for inputFields so that it can execute as per selected shape and makes sure its empty before adding a new input-->
     <label for="side">Enter the length:</label>
-    <input type="number" id="side" required>
+    <input type="number" id="side" required><br><br>
     </div>
 
-    <button onclick="calculateArea()">Calculate</button>
+    <button onclick="calculateArea()" class="calculate-button">Calculate</button>
+
 
     <p id="result"></p>
     <div id="canvas"></div>
@@ -110,12 +112,6 @@
                 </svg>
         `;
     }
-
-    
-
-
-
-
 
    // Function to dynamically create input fields based on the selected shape
    document.getElementById("shape").addEventListener("change", function () {
