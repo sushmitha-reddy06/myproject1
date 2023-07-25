@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shape Perimeter Calculator</title>
+  <link rel="stylesheet" href="style.css"></link>
+  <style>
+    canvas {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body style="background: #ecb19a;">
+    <h1>Perimeter-Shape</h1><br><br>
+    <label for="Shape">Select a Shape</label>
+  <select id="shape">
+    <option value="square">Square</option>
+    <option value="rectangle">Rectangle</option>
+    <option value="triangle">Triangle</option>
+    <option value="circle">Circle</option>
+   </select>
+
+   <div id="inputFields">
+    <label for="side">Enter the Side:</label>
+    <input type="number" id="side" required></input>
+   </div>
+
+   <button onclick="calculatePerimeter()" class="claculate-button">Calculate</button><br>
+   
+   <p id="result"></p>
+   <p id="canvas"></p>
+
+  <script>
+    function calculatePerimeter() {
+        const selectedPerimeter = document.getElementById("shape").value;
+
+        let perimeter;
+
+        if (selectedPerimeter === "square") {
+            const side = parseFloat(document.getElementById("side").value);
+            const perimeter = 4 * side;
+            drawSquare(side);
+        } else if (selectedPerimeter === "rectangle") {
+            const length = parseFloat(document.getElementById("length").value);
+            const width = parseFloat(document.getElementById("width").value);
+            const perimeter = 2*length + 2*width;
+            drawRectangle(length,width);
+        } else if (selectedPerimeter === "triangle") {
+            const height = parseFloat(document.getElementById("height").value);
+            const base = parseFloat(document.getElementById("base").value);
+            const side = parseFloat(document.getElementById("side").value);
+             const perimeter = height + base + side;
+            drawTriangle(height,base,side);
+        } else if (selectedPerimeter === "circle") {
+            const radius = parseFloat(document.getElementById("radius").value);
+            const perimeter = 2 * 3.14 *radius;
+            drawCircle(radius);
+        }
+
+    if (isNaN(perimeter)) {
+        document.getElementById("result").textContent = `perimeter: ${perimeter.toFixed(2)}`;
+    } else {
+        document.getElementById("result").textContent = "Please Enter a Valid Dimension"
+    }
+    
+}
+
+    function drawSquare(side) {
+        const canvas = document.getElementById("canvas");
+      canvas.innerHTML = `
+      <svg height = "${side}" width ="${side}">
+        <rect width = "${side}" height = "${side}" 
+        style = "fill: #f9004d; stroke-width: 10; stroke: white;"/>
+        </svg>
+        `;
+    }
+    function drawRectangle(length, width) {
+    const canvas = document.getElementById("canvas");
+    canvas.innerHTML = `
+        <svg height="${length}" width="${width}">
+            <rect width="${length}" height="${width}" style="fill: #f9004d; stroke-width:10; stroke:white;" />
+        </svg>
+    `;
+}
+
+    function drawTriangle(height,base,side) {
+        const canvas = document.getElementById("canvas");
+        canvas.innerHTML = `
+        <svg height="${height}" width="${base}">
+              <polygon points="0,${height} ${base / 2},0 ${base},${height}" 
+              style="fill:yellow; stroke:black; stroke-width:10;" />
+        </svg>
+        `;
+    }
+    function drawCircle(radius) {
+        const diameter = radius*2;
+        const canvas = document.getElementById("canvas");
+        canvas.innerHTML = `
+        <svg height="${diameter}" width="${diameter}">
+              <circle cx="${radius}" cy="${radius}" r="${radius}" 
+              style="fill: #ca93be; stroke:black; stroke-width:10;" />
+        </svg>
+        `;
+    }
+
+     // Function to dynamically create input fields based on the selected shape
+   document.getElementById("shape").addEventListener("change", function () {
+            const selectedShape = document.getElementById("shape").value;
+            const inputFieldsDiv = document.getElementById("inputFields");
+            inputFieldsDiv.innerHTML = "";
+
+            if (selectedShape === "square") {
+                inputFieldsDiv.innerHTML = `
+                    <label for="side">Enter the length:</label>
+                    <input type="number" id="side" required><br><br>`
+                    ;
+            } else if (selectedShape === "rectangle") {
+                inputFieldsDiv.innerHTML = `
+                    <p><label for="length">Enter the side length:</label>
+                    <input type="number" id="length" required></P><br>
+                    <label for="width">Enter the side width:</label>
+                    <input type="number" id="width" required><br>`
+                    ;
+            } else if (selectedShape === "triangle") {
+                inputFieldsDiv.innerHTML = `
+                    <p><label for="base">Enter the base length:</label>
+                    <input type="number" id="base" required></p><br>
+                    <p><label for="height">Enter the height:</label>
+                    <input type="number" id="height" required></p><br>
+                    <label for="side">Enter the side:</label>
+                    <input type="number" id="side" required><br><br>`
+                    ;
+            } else if (selectedShape === "circle") {
+            inputFieldsDiv.innerHTML = `
+                <label for="radius">Enter the radius:</label>
+                <input type="number" id="radius" required><br>`
+                ;
+        }
+        });      
+
+  </script>
+</body>
+</html>

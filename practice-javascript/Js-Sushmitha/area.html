@@ -6,17 +6,14 @@
     <title>Area Calculator</title>
     <link rel="stylesheet" href="style.css"></link>
     <style>
-        /* Style for drawing the shapes */
-        #canvas {
-            background-color: #fff;
-            border: 100px solid rgb(230, 183, 178);
-            box-sizing: 100px 100px;
-        }
+        canvas {
+      border: 1px solid black;
+    }
     </style>
 </head>
 
 <body style="background: #b8ec9a;">
-    <h1>Shape Area</h1>
+    <h1>Shape Area</h1><br><br>
     
     <label for="Shape">Select a shape</label>
     <select id="shape">
@@ -24,7 +21,7 @@
         <option value="rectangle">Rectangle</option>
         <option value="triangle">Triangle</option>
         <option value="circle">Circle</option>
-    </select>
+    </select><br><br>
 
     <div id="inputFields">
         <!--empty div for inputFields so that it can execute as per selected shape and makes sure its empty before adding a new input-->
@@ -32,7 +29,7 @@
     <input type="number" id="side" required><br><br>
     </div>
 
-    <button onclick="calculateArea()" class="calculate-button">Calculate</button>
+    <button onclick="calculateArea()" class="calculate-button">Calculate</button><br><br>
 
 
     <p id="result"></p>
@@ -46,21 +43,21 @@
 
             if (selectedShape === "square") {
                 const side = parseFloat(document.getElementById("side").value);
-                area = side * side;
+                 const area = side * side;
                 drawSquare(side);
             } else if (selectedShape === "rectangle"){
                 const length = parseFloat(document.getElementById("length").value);
                 const width = parseFloat(document.getElementById("width").value);
-                area = length * width;
+                 const area = length * width;
                 drawRectangle(length, width);
             } else if (selectedShape === "triangle") {
                 const base = parseFloat(document.getElementById("base").value);
                 const height = parseFloat(document.getElementById("height").value);
-                area = 0.5 * base * height;
+                 const area = 0.5 * base * height;
                 drawTriangle(base, height);
             } else if (selectedShape === "circle") {
                 const radius = parseFloat(document.getElementById("radius").value);
-                area = Math.PI * radius * radius;
+                const area = Math.PI * radius * radius;
                 drawCircle(radius)
             }
             
@@ -94,12 +91,11 @@
     }
 
     function drawTriangle(base, height) {
-        const canvas = document.getElementById("canvas");
-        canvas.innerHTML = `
-        <svg height = "${base}" "${height}">
-            <svg height="${height}" width="${base}">
-                    <polygon points="0,${height} ${base / 2},0 ${base},${height}" style="fill:yellow;stroke:black;stroke-width:1;" />
-                </svg>
+    const canvas = document.getElementById("canvas");
+    canvas.innerHTML = `
+        <svg height="${height}" width="${base}">
+            <polygon points="0,${height} ${base / 2},0 ${base},${height}" style="fill:yellow;stroke:black;stroke-width:1;" />
+        </svg>
         `;
     }
 
@@ -121,22 +117,22 @@
 
             if (selectedShape === "square") {
                 inputFieldsDiv.innerHTML = `
-                    </label><label for="side">Enter the length:</label>
-                    <input type="number" id="side" required>`
+                    <label for="side">Enter the length:</label>
+                    <input type="number" id="side" required><br><br>`
                     ;
             } else if (selectedShape === "rectangle") {
                 inputFieldsDiv.innerHTML = `
                     <p><label for="length">Enter the side length:</label>
                     <input type="number" id="length" required></P>
                     <label for="width">Enter the side width:</label>
-                    <input type="number" id="width" required>`
+                    <input type="number" id="width" required><br>`
                     ;
             } else if (selectedShape === "triangle") {
                 inputFieldsDiv.innerHTML = `
                     <p><label for="base">Enter the base length:</label>
                     <input type="number" id="base" required></p>
                     <label for="height">Enter the height:</label>
-                    <input type="number" id="height" required>`
+                    <input type="number" id="height" required><br>`
                     ;
             } else if (selectedShape === "circle") {
             inputFieldsDiv.innerHTML = `
