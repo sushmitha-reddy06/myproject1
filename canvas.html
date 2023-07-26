@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>squarefigure</title>
+</head>
+<body>
+    <p><input type="number" id="length" placeholder="lengthofsquare"></p>
+    <button onclick='squarefigure()' >onclick</button>
+    <canvas id="squarecanvas" width="400" height="400" style="border: 3px solid #272424;"></canvas>
+    
+</body>
+</html>
+<script>
+    function squarefigure(){
+        var length=parseFloat(document.getElementById("length").value);
+        var formula=4*length
+        drawsquareoncanvas();
+        alert(formula)
+    }
+    function drawsquareoncanvas(){
+        var canvas=document.getElementById("squarecanvas");
+        var ctx = canvas.getContext("2d");
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        var side=parseFloat(document.getElementById("length").value)
+        ctx.fillRect(canvas.width /2 -side * 5,canvas.height /2 -side * 5,side *10,side*10)
+    }
+</script>

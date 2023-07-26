@@ -13,7 +13,7 @@
 </head>
 
 <body style="background: #b8ec9a;">
-    <h1>Shape Area</h1><br><br>
+    <h1>Shape Area</h1>
     
     <label for="Shape">Select a shape</label>
     <select id="shape">
@@ -21,7 +21,7 @@
         <option value="rectangle">Rectangle</option>
         <option value="triangle">Triangle</option>
         <option value="circle">Circle</option>
-    </select><br><br>
+    </select>
 
     <div id="inputFields">
         <!--empty div for inputFields so that it can execute as per selected shape and makes sure its empty before adding a new input-->
@@ -29,7 +29,7 @@
     <input type="number" id="side" required><br><br>
     </div>
 
-    <button onclick="calculateArea()" class="calculate-button">Calculate</button><br><br>
+    <button onclick="calculateArea()" class="calculate-button">Calculate</button>
 
 
     <p id="result"></p>
@@ -43,21 +43,21 @@
 
             if (selectedShape === "square") {
                 const side = parseFloat(document.getElementById("side").value);
-                 const area = side * side;
+                area = side * side;
                 drawSquare(side);
             } else if (selectedShape === "rectangle"){
                 const length = parseFloat(document.getElementById("length").value);
                 const width = parseFloat(document.getElementById("width").value);
-                 const area = length * width;
+                area = length * width;
                 drawRectangle(length, width);
             } else if (selectedShape === "triangle") {
                 const base = parseFloat(document.getElementById("base").value);
                 const height = parseFloat(document.getElementById("height").value);
-                 const area = 0.5 * base * height;
+                area = 0.5 * base * height;
                 drawTriangle(base, height);
             } else if (selectedShape === "circle") {
                 const radius = parseFloat(document.getElementById("radius").value);
-                const area = Math.PI * radius * radius;
+                area = Math.PI * radius * radius;
                 drawCircle(radius)
             }
             
@@ -91,12 +91,12 @@
     }
 
     function drawTriangle(base, height) {
-    const canvas = document.getElementById("canvas");
-    canvas.innerHTML = `
+        const canvas = document.getElementById("canvas");
+        canvas.innerHTML = `
         <svg height="${height}" width="${base}">
             <polygon points="0,${height} ${base / 2},0 ${base},${height}" style="fill:yellow;stroke:black;stroke-width:1;" />
         </svg>
-        `;
+    `;
     }
 
     function drawCircle(radius) {
@@ -117,22 +117,22 @@
 
             if (selectedShape === "square") {
                 inputFieldsDiv.innerHTML = `
-                    <label for="side">Enter the length:</label>
-                    <input type="number" id="side" required><br><br>`
+                    </label><label for="side">Enter the length:</label>
+                    <input type="number" id="side" required>`
                     ;
             } else if (selectedShape === "rectangle") {
                 inputFieldsDiv.innerHTML = `
                     <p><label for="length">Enter the side length:</label>
                     <input type="number" id="length" required></P>
                     <label for="width">Enter the side width:</label>
-                    <input type="number" id="width" required><br>`
+                    <input type="number" id="width" required>`
                     ;
             } else if (selectedShape === "triangle") {
                 inputFieldsDiv.innerHTML = `
                     <p><label for="base">Enter the base length:</label>
                     <input type="number" id="base" required></p>
                     <label for="height">Enter the height:</label>
-                    <input type="number" id="height" required><br>`
+                    <input type="number" id="height" required>`
                     ;
             } else if (selectedShape === "circle") {
             inputFieldsDiv.innerHTML = `
