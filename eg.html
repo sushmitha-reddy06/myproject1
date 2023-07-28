@@ -1,122 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: sans-serif;
-        }
-    
-        .calculator {
-            border: 1px solid blue;
-            padding: 20px;
-            border-radius: 16px;
-            background: transparent;
-            box-shadow: 0px 3px 15px #000;
-            display: flex; /* Set display to flex */
-            flex-direction: column; /* Align children vertically */
-            align-items: center; /* Center children horizontally */
-        }
-    
-        input {
-            width: 100%;
-            border: none;
-            padding: 24px;
-            margin: 10px;
-            font-size: 40px;
-            text-align: right;
-            cursor: pointer;
-        }
-    
-        input::placeholder {
-            color: #000;
-        }
-    
-        body {
-            width: 80vh;
-            height: 400px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-    
-        button {
-            justify-content: space-between;
-            border: none;
-            width: 60px;
-            height: 60px;
-            margin: 10px;
-            border-radius: 50%;
-            font-size: 20px;
-            box-shadow: -8px -8px 15px pink;
-            cursor: pointer;
-        }
-    
-        .equalBtn {
-            background-color: orangered;
-        }
-    
-        .operator {
-            color: blueviolet;
-        }
-    </style>
-    
+    <link rel="stylesheet" href="style.css">
+    <link rel="script" href="calculator.js"></link>
+<style>
+        
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}    
+
+
+body {
+min-height: 100vh;
+background: #efeff2;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.calculator {
+width: 300px;
+height: 500px;
+box-shadow: 4px 4px 30px rgb(0, 0, 0, 0.3);
+border-radius: 12px;
+background: #22252D;
+overflow: hidden;
+}
+
+@media only screen and (max-width: 400px) {
+    form input {
+        font-size: 1.5rem;
+    }
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form input{
+width: auto;
+max-height: 150px;
+border: none;
+border-radius: 12px;
+font-size: 2rem;
+padding: 1rem;
+color: #fff;
+background: #000;
+text-align: right;
+pointer-events: none;
+overflow-wrap: break-word;
+resize: none;
+overflow-y: auto;
+transition: font-size 0.1s;
+}
+.buttons{
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+padding: 20px;
+}
+
+button {
+flex: 0 0 22%;
+margin: 5px 0;
+border: 1px solid #000;
+width: 60px;
+height: 52px;
+font-size: 22px;
+font-weight: 600;
+border-radius: 5px;
+cursor: pointer;
+}
+button:hover {
+background: transparent;
+border: 2px solid #e9c4d0;
+cursor: pointer;
+}
+
+.btn-yellow {
+background: rgb(245, 146, 62);
+color: #fff;
+
+}
+
+.btn-grey {
+background: rgb(224, 224, 224);
+}
+
+.btn-equal {
+background: green;
+
+}
+
+.btn-clear {
+background: red;
+}
+
+.btn-back {
+    background: rgb(150, 185, 230);
+    }
+</style>
+
+
 </head>
-
 <body>
-    <div class="calculator">
-        <input type="text" id="inputBox" placeholder="0">
-        <div>
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
-            <button class="operator">*</button>
-        </div>
-        <div>
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-            <button class="operator">-</button>
-        </div>
-        <div>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button class="operator">+</button>
-        </div>
-        <div>
-            <button>00</button>
-            <button>0</button>
-            <button>.</button>
-            <button class="equalBtn">=</button>
-        </div>
+   
+
+    <!-- HTML code for the calculator -->
+<section class="calculator">
+    <form>
+        <input type="text" class="screen">
+    </form>
+
+    <div class="buttons">
+        <!-- buttons-operators code -->
+        <button type="button" class="btn btn-yellow" data-num="*">*</button>
+        <button type="button" class="btn btn-yellow" data-num="/">/</button>
+        <button type="button" class="btn btn-yellow" data-num="-">-</button>
+        <button type="button" class="btn btn-yellow" data-num="+">+</button>
+        
+        <!--buttons-numbers code-->
+        <button type="button" class="btn btn-grey" data-num="9">9</button>
+        <button type="button" class="btn btn-grey" data-num="8">8</button>
+        <button type="button" class="btn btn-grey" data-num="7">7</button>
+        <button type="button" class="btn btn-grey" data-num="6">6</button>
+        <button type="button" class="btn btn-grey" data-num="5">5</button>
+        <button type="button" class="btn btn-grey" data-num="4">4</button>
+        <button type="button" class="btn btn-grey" data-num="3">3</button>
+        <button type="button" class="btn btn-grey" data-num="2">2</button>
+        <button type="button" class="btn btn-grey" data-num="1">1</button>
+        <button type="button" class="btn btn-grey" data-num="0">0</button>
+        <button type="button" class="btn btn-grey" data-num=".">.</button>
+
+        <!--buttons-equal & clear code-->
+        <button type="button" class="btn btn-equal">=</button>
+        <button type="button" class="btn btn-clear">C</button>
+        <button type="button" class="btn btn-back">←</button>
     </div>
+</section>
 
-    <script>
-        let input = document.getElementById('inputBox');
-        let buttons = document.querySelectorAll('button');
-
-        let string = "";
-        buttons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                if (e.target.innerHTML === '=') {
-                    if (string !== "") {
-                        input.value = eval(string);
-                        string = ""; // Reset the string after evaluation
-                    }
-                } else {
-                    string += e.target.innerHTML;
-                    input.value = string;
-                }
-            });
-        });
-    </script>
 </body>
-
 </html>
+<script>
+    (function() {
+        let screen = document.querySelector('.screen');
+        let numberButtons = document.querySelectorAll('.btn-grey');
+        let operatorButtons = document.querySelectorAll('.btn-yellow');
+        let equal = document.querySelector('.btn-equal');
+        let clear = document.querySelector('.btn-clear');
+        let backspace = document.querySelector('.btn-back');
+
+        function handleInputDisplay(value) {
+            screen.value += value;
+        }
+
+        numberButtons.forEach(function(button) {
+            button.addEventListener('click', function(e) {
+                let value = e.target.dataset.num;
+                handleInputDisplay(value);
+            })
+        });
+
+        operatorButtons.forEach(function(button) {
+            button.addEventListener('click', function(e) {
+                let operator = e.target.dataset.num;
+                handleInputDisplay(operator);
+            })
+        });
+
+        equal.addEventListener('click', function(e) {
+            if (screen.value === '') {
+                screen.value = "please enter";
+            } else {
+                let answer = eval(screen.value);
+                screen.value = answer;
+            };
+        });
+
+        clear.addEventListener('click', function(e) {
+            screen.value = "";
+        });
+
+        backspace.addEventListener('click', function(e) {
+            screen.value = screen.value.slice(0, -1);
+        });
+
+        // Assign keyboard keys to buttons
+        document.addEventListener('keydown', function(e) {
+            const key = e.key;
+            if (key === 'Enter' || key === '=') {
+                e.preventDefault(); // Prevent form submission when pressing Enter key
+                if (screen.value === '') {
+                    screen.value = "please enter";
+                } else {
+                    let answer = eval(screen.value);
+                    screen.value = answer;
+                };
+            } else if (key === 'Backspace') {
+                screen.value = screen.value.slice(0, -1);
+            } else if (!isNaN(key) || key === '.' || key === '/' || key === '*' || key === '-' || key === '+') {
+                e.preventDefault(); // Prevent default behavior for these keys
+                handleInputDisplay(key);
+            }
+        });
+    })();
+</script>
