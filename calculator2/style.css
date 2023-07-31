@@ -13,8 +13,8 @@ body {
 }
 
 .calculator {
-    width: 300px;
-    height: 500px;
+    width: 200px;
+    height: 300px;
     box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.3);
     border-radius: 12px;
     background: #22252D;
@@ -40,8 +40,8 @@ body {
 /* Media query for screen widths above 600px */
 @media only screen and (min-width: 601px) {
     .calculator {
-        width: 400px;
-        height: 600px;
+        width: 300px;
+        height: 500px;
     }
 }
 
@@ -52,7 +52,7 @@ form {
 
 form input {
     width: auto;
-    max-height: 150px;
+    max-height: 200px;
     border: none;
     border-radius: 12px;
     font-size: 2rem;
