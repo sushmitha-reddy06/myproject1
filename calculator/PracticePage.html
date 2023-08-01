@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5"> <!--bootstrap-5 class margin space to the top add 5 units (likely pixels)-->
+        <div class="row">
+            <div class="col-md-4 offset-md-4"> <!--bootstrap-5 class and a column with a width of 4 
+                grid units (columns) on medium-sized screens and above. -->
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Simple Calculator</h4>
+                        <input type="text" id="result" class="form-control mb-3" disabled>
+                        <div class="row">
+                            <div class="col-3"><button class="btn btn-secondary btn-block" onclick="clearResult()">C</button><br></div>
+                            <div class="col-3"><button class="btn btn-secondary btn-block" onclick="backspace()">←</button></div>
+                            <div class="col-3"><button class="btn btn-secondary btn-block" onclick="appendToResult('/')">/</button></div>
+                            <div class="col-3"><button class="btn btn-secondary btn-block" onclick="appendToResult('*')">*</button></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><button class="btn btn-primary btn-block" onclick="appendToResult('7')">7</button><br></div>
+                            <div class="col-3"><button class="btn btn-primary btn-block" onclick="appendToResult('8')">8</button></div>
+                            <div class="col-3"><button class="btn btn-primary btn-block" onclick="appendToResult('9')">9</button></div>
+                            <div class="col-3"><button class="btn btn-secondary btn-block" onclick="appendToResult('-')">-</button></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><button class="btn btn-primary btn-block" onclick="appendToResult('4')">4</button><br></div>
+                            <div class="col-3"><button class="btn btn-primary btn-block" onclick="appendToResult('5')">5</button></div>
+                            <div class="col-3"><button class="btn btn-primary btn-block" onclick="appendToResult('6')">6</button></div>
+                            <div class="col-3"><button class="btn btn-secondary btn-block" onclick="appendToResult('+')">+</button></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><button class="btn btn-primary btn-block" onclick="appendToResult('1')">1</button><br></div>
+                            <div class="col-3"><button class="btn btn-primary btn-block" onclick="appendToResult('2')">2</button></div>
+                            <div class="col-3"><button class="btn btn-primary btn-block" onclick="appendToResult('3')">3</button></div>
+                            <div class="col-3"><button class="btn btn-secondary btn-block" onclick="appendToResult('.')">.</button></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><button class="btn btn-primary btn-block" onclick="appendToResult('0')">0</button></div>
+                            <div class="col-3"><button class="btn btn-secondary btn-block" onclick="calculateResult()">=</button></div>
+                            <div class="col-3">&nbsp;</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('keydown', function(event) {
+            const key = event.key;
+            if (!isNaN(key) || key === '.' || key === '+' || key === '-' || key === '*' || key === '/' || key === 'Enter') {
+                if (key === 'Enter') {
+                    calculateResult();
+                } else {
+                    appendToResult(key);
+                }
+            } else if (key === 'Backspace') {
+                backspace();
+            }
+        });
+
+        function appendToResult(value) {
+            document.getElementById("result").value += value;
+        }
+
+        function clearResult() {
+            document.getElementById("result").value = "";
+        }
+
+        function calculateResult() {
+            try {
+                const result = eval(document.getElementById("result").value);
+                document.getElementById("result").value = result;
+            } catch (error) {
+                document.getElementById("result").value = "Error";
+            }
+        }
+
+        function backspace() {
+            const currentResult = document.getElementById("result").value;
+            document.getElementById("result").value = currentResult.slice(0, -1);
+        }
+    </script>
+</body>
+</html>

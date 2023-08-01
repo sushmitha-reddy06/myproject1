@@ -25,9 +25,11 @@
     }
 
     function handleOperatorClick(operator) {
+        console.log(operator)
         if (currentInput !== '') {
             if (currentOperator === '') {
                 currentOperator = operator;
+                console.log("stores in operator : "+currentOperator);
                 currentInput += operator;
                 updateScreen(currentInput);
             } else {
@@ -40,7 +42,7 @@
     }
 
     function calculateResult() {
-    console.log("Inside cal function")
+    console.log("Inside call function");
 
         if (currentInput !== '' && currentOperator !== '') {
             let operands = currentInput.split(currentOperator);
