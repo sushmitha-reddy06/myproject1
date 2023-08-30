@@ -1,6 +1,74 @@
-.bg-top {
-    background-color: #664045;
-    padding: 5px 0px;
+/* Top Bar CSS */
+
+.top-bar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 30px;
+  margin: 0px 45px;
+}
+
+.custom-topbar {
+background-color: #664045;
+}
+
+.top-bar-inner ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.top-bar-inner ul li {
+  font-size: 14px;
+  display: inline-block;
+}
+
+.top-bar-inner ul li a {
+  color: #f2f2f2;
+}
+
+.fa, .fas {
+  font-weight: 900;
+  font-family: "Font Awesome 5 Free";
+}
+
+.top-bar-inner ul li+li {
+  margin-left: 20px;
+}
+
+/* Header Logo */
+
+.header-logo {
+  padding: 15px 0px;
+  margin: 0px 45px;
+}
+
+.covid-logo img {
+  float: right;
+  padding: 20px 0px;
+}
+
+/* styles.css */
+.custom-navbar {
+  background-color: #664045 !important;
+  padding: 0;
+  border-radius: 0%;
+  height: 0.01em;
+}
+
+.custom-navbar .navbar-nav .nav-item {
+  margin-right: 10px; /* Add spacing between nav items */
+  margin-left: 10px;
+  align-items: end;
+}
+
+.custom-navbar .navbar-nav .nav-link {
+  color: #ffffff; /* Set font color for nav links */
+  font-size: 14px; /* Set font size for nav links */
+}
+
+.custom-navbar .navbar-toggler-icon {
+  background-color: #ffffff; /* Set background color for toggler icon */
 }
 
 .bg-top ul li a {
@@ -31,6 +99,11 @@
   display: block;
   background-color: #283161;
   justify-content: center;
+
+}
+
+.nav-right {
+  float: right;
 }
 
 /* Style the dropdown button */
@@ -92,7 +165,7 @@
 }
 /* Add this CSS */
 .container-fluid {
-  align-items: center;
+  align-items: flex;
 }
 .navbar2{
   text-align: center;
@@ -102,9 +175,9 @@
   height: auto;
   clear:both;
   background-image: linear-gradient(to right, #2469bd, #41b057);
+  padding: 1px 30px;
  
 }
-
 .row h1{
   display: block;
   flex-wrap: wrap;
@@ -112,7 +185,6 @@
   margin-right: -15px;
   justify-content: center;
   align-items: center;
-  
 }
 
 .Promotion_text h1 {
@@ -123,13 +195,171 @@
   margin-bottom: 0px;
   color: #fff!important;
 }
-.categories-area-wrap {
-  margin-top: -10px; 
-  padding-top: 0;
-  padding-bottom: 0%;
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  display: flex;
+ }
+
+.bg-blue {
+ background-image: linear-gradient(to right, #0b2850, #396aac);
+ padding: 1px 30px;
 }
+
+.card-service {
+  color: #000;
+  width: 100%;
+  margin: 10px 0px;
+  height: 100px;
+  align-items: bottom;
+  text-align: center;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  
+}
+
+.bg-blue .col-lg-3 a {
+  text-decoration: none;
+}
+
+.circle-shape {
+  flex-shrink: 0;
+  padding: 20px 0px;
+  width: 100px;
+  height: 60px;
+  float: left;
+}
+
+.card-service p {
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+  padding-top: 26px;
+  padding-left: 0x;
+  padding-right: 10px;
+  text-align: left;
+  font-weight: 600;
+  line-height: 20px;
+  hyphens: auto;
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.circle-shape.text-white img {
+  vertical-align: middle;
+  max-width: 100%;
+  overflow: clip;
+}
+/*counter*/
+.counter
+{
+    text-align: center;
+}
+.employees,.customer,.design,.order
+{
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+.counter-count
+{
+    font-size: 18px;
+    background-color: #00b3e7;
+    border-radius: 50%;
+    position: relative;
+    color: #ffffff;
+    text-align: center;
+    line-height: 92px;
+    width: 92px;
+    height: 92px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    display: inline-block;
+}
+
+.employee-p,.customer-p,.order-p,.design-p
+{
+    font-size: 24px;
+    color: #000000;
+    line-height: 34px;
+}
+
+/*advantage_palamuru section*/
+
+ .ad_palamuru {
+  background-color: #fff8d1;
+  
+}
+
+.advantage_palamuru {
+  width: auto;
+  height: auto;
+  padding: 0px 20px;
+}
+.advantage_palamuru h2 {
+  text-align: left;
+   color: #14539c;
+}
+.title-color-pink {
+  color: #ee608f;
+}
+.advantage_palamuru p {
+  font-size: 16px;
+ 
+}
+.land-p{
+ color: #000;
+ font-size: 16px;
+ font-weight: 100;
+ 
+}
+.college-p{
+  color: #000;
+  font-size: 16px;
+  font-weight: 100;
+ }
+ .academic-p{
+  color: #000;
+  font-size: 16px;
+  font-weight: 100;
+ }
+.counter-count {
+  font-size: 48px;
+  color: #ee608f;
+  background-color: #fff8d1;
+  line-height: -0.1em;
+  height: 0.1em;
+  font-weight: 700;
+
+}
+
+/* carousal slide */
+.carousel-caption {
+  background-color: #5580f5;
+  padding: 20px;
+  color: white;
+  box-sizing: border-box;
+}
+
+.carousel-bg {
+  background-color: #fff8d1;
+}
+
+  
+
+
+
+
+
+
+
+
 :root {
-  --blue: #007bff;
+  --blue: #78b0ec;
   --indigo: #6610f2;
   --purple: #6f42c1;
   --pink: #e83e8c;
